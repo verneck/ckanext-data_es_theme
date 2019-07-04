@@ -1,0 +1,30 @@
+
+{% set current_url = h.full_current_url() %}
+
+{% if pkg %}
+  {% set dataset_title = " - " +h.dataset_display_name(pkg) %}
+{% else %}
+  {% set dataset_title = "" %}
+{% endif %}
+
+{% if res %}
+  {% set file_title = " - " + h.resource_display_name(res) %}
+{% else %}
+  {% set file_title = "" %}
+{% endif %}
+
+
+{% block social %}
+  <section class="module module-narrow social">
+    {% block social_title %}
+      <h2 class="module-heading"><i class="fa fa-share-square-o"></i> {{ _('Compartilhar:') }}</h2>
+    {% endblock %}
+    {% block social_nav %}
+      <ul class="nav nav-simple">
+        <li class="nav-item"><a href="https://www.facebook.com/sharer.php?u={{ current_url }}" target="_blank"><i class="fa fa-facebook-square"></i> Facebook</a></li>
+        <li class="nav-item"><a href="https://twitter.com/share?url={{ current_url }}" target="_blank"><i class="fa fa-twitter-square"></i> Twitter</a></li>
+        <li class="nav-item"><a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su={{g.site_title}}{{dataset_title}}{{file_title}}&body={{current_url}}&ui=2&tf=1&pli=1" target="_blank"><img style="max-width: 18px;" src="{{ h.url_for_static('/base/images/gmail-icon.png') }}"> Gmail</a></li>
+      </ul>
+    {% endblock %}
+  </section>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% set stats = h.get_site_statistics() %}
+
+<div class="box stats">
+  <div class="inner">
+    <div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+
+            {% block stats_group %}
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="stats-item">
+                    <a title="Acessar {{_('datasets')}}" href="{{ h.url_for('dataset.search') }}">
+                      <div class="stats-row stats-label">{{ _('dataset') if stats.dataset_count == 1 else _('datasets') }}</div>
+                      <div class="stats-row stats-val"><strong><span class="statsValue">{{ stats.dataset_count }}</span></strong></div>
+                    </a>
+                  </div>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="stats-item">
+                    <a title="Acessar {{_('organizations')}}"  href="{{ h.url_for(controller='organization', action='index') }}">
+                        <div class="stats-row stats-label">{{ _('organization') if stats.organization_count == 1 else _('organizations') }}</div>
+                        <div class="stats-row stats-val"><strong><span class="statsValue">{{ stats.organization_count }}</span></strong></div>
+                    </a>
+                  </div>          
+            </div>        
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="stats-item">
+                    <a title="Acessar {{_('groups')}}"  href="{{ h.url_for(controller='group', action='index') }}">
+                        <div class="stats-row stats-label">{{ _('group') if stats.group_count == 1 else _('groups') }}</div>
+                        <div class="stats-row stats-val"><strong><span class="statsValue">{{ stats.group_count }}</span></strong></div>
+                    </a>
+                </div>
+            </div>
+            {% endblock %}
+
+    </div>
+
+  </div>
+  <div class="clearfix"></div>
+</div>
+<script type="text/javascript">
+  //<![CDATA[
+//to: 0 - to left, 1 - to right
+String.prototype.pad = function(_char, len, to) {
+  if (!this || !_char || this.length >= len) {
+      return this;
+  }
+  to = to || 0;
+
+  var ret = this;
+
+  var max = (len - this.length)/_char.length + 1;
+  while (--max) {
+      ret = (to) ? ret + _char : _char + ret;
+  }
+
+  return ret;
+};
+
+var els = document.getElementsByClassName("statsValue");
+
+Array.prototype.forEach.call(els, function(el) {
+    el.textContent = el.textContent.pad('0', 3, 0);
+});
+
+
+  //]]>
+</script>

@@ -1,0 +1,32 @@
+{% block group_item %}
+  <section class="group-list module module-narrow module-shallow {{ group.name }}">
+    {% block group_item_header %}
+      <header class="module-heading">
+        {% set truncate=truncate or 0 %}
+        {% set truncate_title = truncate_title or 0 %}
+        {% set title = group.title or group.name %}
+
+        <a  title="Acessar {{ group.title or group.name }}"  href="{{ h.url_for(controller='group', action='read', id=group.name) }}">
+          {% block group_item_header_image %}       
+            <div class="module-image">
+                {% if group.image_display_url %}
+                  <img src="{{ group.image_display_url or h.url_for_static('/base/images/placeholder-group.png') }}" alt="{{ group.name }}" />
+                {% else %}
+                  <i class="fas fa-folder-open fa-{{ group.name }}"></i>
+                {% endif %}          
+            </div>
+          {% endblock %}
+          {% block group_item_header_title %}
+            <h3 class="media-heading">
+              {{ group.title or group.name }}
+              {% block datasets %}
+                <span class="count">({{group.package_count}})</span>
+              {% endblock %}            
+            </h3>
+          {% endblock %}
+        </a>
+      </header>
+    {% endblock %}
+   
+  </section>
+{% endblock %}

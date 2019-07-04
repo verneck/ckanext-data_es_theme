@@ -1,0 +1,20 @@
+{% set groups = h.get_featured_groups(0) %}
+
+<div class="data-groups-list">
+  <div class="inner">
+    <div class="header-box">
+        <h3 style="margin-top: 0;">{{ _('Grupos de Dados').format(g.site_title) }}</h3>
+        <div class="divisao-1"></div>
+        <div class="divisao-2"></div>
+    </div>
+    <div class="row">
+      {% for group in groups %}
+        <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
+            <div class="box">
+                {% snippet 'snippets/group_item.html', group=group, truncate=50, truncate_title=35 %}
+              </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
