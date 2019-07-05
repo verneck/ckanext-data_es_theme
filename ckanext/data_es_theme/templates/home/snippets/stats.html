@@ -7,7 +7,7 @@
             {% block stats_group %}
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                 <div class="stats-item">
-                    <a title="Acessar {{_('datasets')}}" href="{{ h.url_for('dataset.search') }}">
+                    <a title="Acessar {{_('datasets')}}" href="{{ h.url_for(controller='package', action='search') }}">
                       <div class="stats-row stats-label">{{ _('dataset') if stats.dataset_count == 1 else _('datasets') }}</div>
                       <div class="stats-row stats-val"><strong><span class="statsValue">{{ stats.dataset_count }}</span></strong></div>
                     </a>

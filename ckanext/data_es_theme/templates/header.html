@@ -17,16 +17,19 @@
     <div class="account avatar authed" data-module="me" data-me="{{ c.userobj.id }}">
       <ul class="list-unstyled gov-menu">
         <li>
-            <a href="http://www.transparencia.es.gov.br/" target="_blank" title="Ir para o portal da transparência">Portal da Transparência</a> | 
-        </li>     
-        <li>
             <a href="https://acessoainformacao.es.gov.br/" target="_blank" title="Ir para a página de acesso à Informação pública">
                 <img style="max-width: 100%;" src="//cdn.es.gov.br/images/logo/acesso-informacao/acessoInformacao_21x21.png">
                 <span class="legend">
                     Acesso à Informação
                 </span>
             </a> | 
-        </li>   
+        </li>           
+        <li>
+            <a href="http://www.transparencia.es.gov.br/" target="_blank" title="Ir para o portal da transparência"><span class="legend">Transparência</span></a> | 
+        </li>    
+        <li>
+            <a href="https://ouvidoria.es.gov.br/" target="_blank" title="Ir para o portal da Ouvidoria"><span class="legend">Ouvidoria</span></a> | 
+        </li>               
         {% block header_account_logged %} {% if c.userobj.sysadmin %}
         <li>
           <a href="{{ h.url_for(controller='admin', action='index') }}" title="{{ _('Sysadmin settings') }}">
@@ -48,7 +51,6 @@
           <a href="{{ h.url_for('dashboard.index') }}" title="{{ notifications_tooltip }}">
             <i class="fa fa-tachometer" aria-hidden="true"></i>
             <span class="text">{{ _('Dashboard') }}</span>
-            <span class="badge">{{ new_activities }}</span>
           </a>
         </li>
         {% block header_account_settings_link %}
@@ -61,7 +63,7 @@
         {% endblock %} 
         {% block header_account_log_out_link %}
         <li>
-          <a href="{{ h.url_for('/user/_logout') }}" title="{{ _('Log out') }}">
+         <a href="{{ h.url_for('user.logout') }}" title="{{ _('Log out') }}">    
             <i class="fa fa-sign-out" aria-hidden="true"></i>
             <span class="text">{{ _('Log out') }}</span>
           </a>
@@ -99,16 +101,19 @@
     <nav class="account not-authed hidden-xs">
       <ul class="list-unstyled gov-menu">
         <li>
-            <a href="http://www.transparencia.es.gov.br/" target="_blank" title="Ir para o portal da transparência">Portal da Transparência</a> | 
-        </li>     
-        <li>
             <a href="https://acessoainformacao.es.gov.br/" target="_blank" title="Ir para a página de acesso à Informação pública">
                 <img style="max-width: 100%;" src="//cdn.es.gov.br/images/logo/acesso-informacao/acessoInformacao_21x21.png">
                 <span class="legend">
                     Acesso à Informação
                 </span>
             </a> | 
-        </li>                
+        </li>           
+        <li>
+            <a href="http://www.transparencia.es.gov.br/" target="_blank" title="Ir para o portal da transparência"><span class="legend">Transparência</span></a> | 
+        </li>  
+        <li>
+            <a href="https://ouvidoria.es.gov.br/" target="_blank" title="Ir para o portal da Ouvidoria"><span class="legend">Ouvidoria</span></a> | 
+        </li>                           
         {% block header_account_notlogged %}
         <li><i class="fa fa-lock circle-border"></i> {% link_for _('Log in'), named_route='user.login' %} | </li>
         {% if h.check_access('user_create') %}
@@ -170,10 +175,10 @@
             <div class="hidden-sm col-sm-6 col-md-3 col-lg-3">
               <ul class="social-icons-container">
                   <li class="social-icon-item">
-                    <a href="#" title="Acessar Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                    <a href="https://www.facebook.com/SecontEspiritoSanto" title="Acessar Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
                   </li>
                   <li class="social-icon-item">
-                      <a href="#" title="Acessar Twitter" target="_blank"><i class="fa fa-twitter"></i></a>               
+                      <a href="http://twitter.com/secontes" title="Acessar Twitter" target="_blank"><i class="fa fa-twitter"></i></a>               
                   </li>
               </ul>
             </div> 
@@ -203,14 +208,14 @@
                   {{ h.build_nav_main(
                       ('home.index', _('Home')),
                       ('home.about', _('About')),
-                      ('dataset.search', _('Datasets')),
-                      ('organization.index', _('Organizations')),
-                      ('group.index', _('Groups'))) }}
+                      ('search', _('Datasets')),
+                      ('organizations_index', _('Organizations')),
+                      ('group_index', _('Groups'))) }}
                     {% endblock %}
                       </ul>
                     </nav>
                     {% endblock %} {% block header_site_search %}
-                    <form class="section site-search simple-input navbar-form navbar-right search-transparencia" action="{% url_for 'dataset.search' %}" method="get">
+                    <form class="section site-search simple-input navbar-form navbar-right search-transparencia" action="{% url_for 'search' %}" method="get">
                       <div class="field">
                         <label for="field-sitewide-search">{% block header_site_search_label %}{{ _('Search Datasets') }}{% endblock %}</label>
                         <input id="field-sitewide-search" type="text" class="form-control" name="q" placeholder="{{ _('Search') }}" />

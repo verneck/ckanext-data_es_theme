@@ -100,16 +100,17 @@ a:focus,
 .account-masthead,
 .account-masthead .account ul li a,
 .account-masthead .account ul li a:hover{
-    color: #4d4d4d;
+    color: #333;
 }
 
 .account-masthead {
     background: none;
     background-color: #e6e6e6;
-    border-bottom: 1px solid #d8d8d8;
-    min-height: 42px;
-    line-height: 3em;
-    font-size: 14px;
+    border-bottom: 1px solid #C5C5C5;
+    min-height: 33px;
+    line-height: 2.6em;
+    font-size: 12px;
+
 }
 .account-masthead .account ul li {
     border: none;
@@ -118,13 +119,16 @@ a:focus,
 .account-masthead .account ul li a{ 
     font-weight: normal;
     font-family: 'OpenSans',Arial,sans-serif;
-    font-size: 14px;
+    font-size: 12px;
     line-height: initial;
     display: inline-block;
     padding: 0;
 }
 .account-masthead .account ul li a:hover {
     background: none;
+}
+
+.account-masthead .account ul li a:hover span {
     text-decoration: underline;
 }
 
@@ -142,6 +146,7 @@ a:focus,
 
 ol.gov-menu-accessibility {
     padding-left: 2px;
+    padding-top: 1px;
 }
 
 .account-masthead .account .gov-menu .circle-border, 
@@ -151,20 +156,43 @@ ol.gov-menu-accessibility {
 }
 
 .account-masthead .account .gov-menu .circle-border.fa-lock {
-    padding: 5px 7px;
+    padding: 5px 6px;
 }
 
 .account-masthead .account .gov-menu-accessibility a {
     font-family: Arial,sans-serif;
-    padding: 3px 8px;
+    padding: 3px 9px;
     font-size: 17px;
     text-decoration: none;
     border: 1px solid #6e6e6e;
+
 }
+
+
+
 .account-masthead .account .gov-menu-accessibility a span {
     font-size: 16px;
 }
 
+.account-masthead .gov-menu-accessibility .constrast-element a {
+    padding: 3px 7px;
+}
+
+.account-masthead .account ul li a i {
+    font-size: 16px;
+}
+
+.account-masthead .account ul li a span.text{
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-left: 0;    
+}
+
+.account-masthead .account .notifications a:hover span{
+    background: none;
+    color: #333;    
+}
 
 /*=========================================
 * Header
