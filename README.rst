@@ -29,7 +29,7 @@
     :alt: License
 
 =============
-# ckanext-data_es_theme
+ckanext-data_es_theme
 =============
 
 Plugin/Tema do Portal de Dados Abertos do Governo do Estado do Espírito Santo (Brasil):
