@@ -37,16 +37,16 @@ Plugin/Tema do Portal de Dados Abertos do Governo do Estado do Espírito Santo (
 https://dados.es.gov.br/
 
 
-------------
+=============
 Requisitos
-------------
+=============
 
 * CKAN 2.8.X
 
 
-------------
+=============
 Instalação
-------------
+=============
 
 .. Add any additional install steps to the list below.
    For example installing any non-Python dependencies or adding any required
@@ -54,7 +54,7 @@ Instalação
 
 Para instalar o tema ckanext-data_es_theme:
 
-1. Ative o virtualenv do CKAN::
+1. Ative o virtualenv no CKAN::
 
      source /usr/lib/ckan/default/bin/activate
 
@@ -95,9 +95,9 @@ Para instalar o tema ckanext-data_es_theme:
      sudo service apache2 reload
 
 
------------------
+=============
 Executando Testes
------------------
+=============
 
 Para realizar testes, execute o comando abaixo::
 
