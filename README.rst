@@ -32,135 +32,78 @@
 ckanext-data_es_theme
 =============
 
-.. Put a description of your extension here:
-   What does it do? What features does it have?
-   Consider including some screenshots or embedding a video!
+Plugin/Tema do Portal de Dados Abertos do Governo do Estado do Espírito Santo (Brasil):
+https://dados.es.gov.br/
 
 
 ------------
-Requirements
+Requisitos
 ------------
 
-For example, you might want to mention here which versions of CKAN this
-extension works with.
+* CKAN 2.8.X
 
 
 ------------
-Installation
+Instalação
 ------------
 
 .. Add any additional install steps to the list below.
    For example installing any non-Python dependencies or adding any required
    config settings.
 
-To install ckanext-data_es_theme:
+Para instalar o tema ckanext-data_es_theme:
 
-1. Activate your CKAN virtual environment, for example::
+1. Ative o virtualenv do CKAN::
 
-     . /usr/lib/ckan/default/bin/activate
+     source /usr/lib/ckan/default/bin/activate
 
-2. Install the ckanext-data_es_theme Python package into your virtual environment::
 
-     pip install ckanext-data_es_theme
+2. Acesse o diretório de plugins do CKAN no virtualenv::
 
-3. Add ``data_es_theme`` to the ``ckan.plugins`` setting in your CKAN
-   config file (by default the config file is located at
+     cd /usr/lib/ckan/default/src/
+
+
+3. Clone o tema ckanext-data_es_theme no diretório de plugins::
+
+     git clone https://github.com/prodest/ckanext-data_es_theme.git
+
+
+4. Acesse o diretório do tema no diretório de plugins do CKAN no virtualenv::
+
+     cd ckanext-data_es_theme
+
+
+5. Instale o tema ckanext-data_es_theme no virtualenv do CKAN utilizando o comando Python abaixo::
+
+   pip install -r pip-requirements.txt
+   python setup.py install
+   python setup.py develop
+
+6. Saia da virtualenv::
+
+     deactivate
+
+
+
+7. Adicione ``data_es_theme`` em ``ckan.plugins`` no arquivo de configuração do CKAN
+    (por padrão o arquivo de configuração do CKAN está localizado em
    ``/etc/ckan/default/production.ini``).
 
-4. Restart CKAN. For example if you've deployed CKAN with Apache on Ubuntu::
+8. Reinicie o CKAN. Por exemplo, se você implantou o CKAN com o Apache no Ubuntu::
 
      sudo service apache2 reload
 
 
----------------
-Config Settings
----------------
-
-Document any optional config settings here. For example::
-
-    # The minimum number of hours to wait before re-checking a resource
-    # (optional, default: 24).
-    ckanext.data_es_theme.some_setting = some_default_value
-
-
-------------------------
-Development Installation
-------------------------
-
-To install ckanext-data_es_theme for development, activate your CKAN virtualenv and
-do::
-
-    git clone https://github.com/prodest/ckanext-data_es_theme.git
-    cd ckanext-data_es_theme
-    python setup.py develop
-    pip install -r dev-requirements.txt
-
-
 -----------------
-Running the Tests
+Executando Testes
 -----------------
 
-To run the tests, do::
+Para realizar testes, execute o comando abaixo::
 
     nosetests --nologcapture --with-pylons=test.ini
 
-To run the tests and produce a coverage report, first make sure you have
-coverage installed in your virtualenv (``pip install coverage``) then run::
+Para executar os testes e gerar um relatório de cobertura (coverage report), primeiro certifique-se de ter o plugin coverage instalado em sua virtualenv (``pip install coverage``), então execute:
 
     nosetests --nologcapture --with-pylons=test.ini --with-coverage --cover-package=ckanext.data_es_theme --cover-inclusive --cover-erase --cover-tests
-
-
----------------------------------
-Registering ckanext-data_es_theme on PyPI
----------------------------------
-
-ckanext-data_es_theme should be availabe on PyPI as
-https://pypi.python.org/pypi/ckanext-data_es_theme. If that link doesn't work, then
-you can register the project on PyPI for the first time by following these
-steps:
-
-1. Create a source distribution of the project::
-
-     python setup.py sdist
-
-2. Register the project::
-
-     python setup.py register
-
-3. Upload the source distribution to PyPI::
-
-     python setup.py sdist upload
-
-4. Tag the first release of the project on GitHub with the version number from
-   the ``setup.py`` file. For example if the version number in ``setup.py`` is
-   0.0.1 then do::
-
-       git tag 0.0.1
-       git push --tags
-
-
-----------------------------------------
-Releasing a New Version of ckanext-data_es_theme
-----------------------------------------
-
-ckanext-data_es_theme is availabe on PyPI as https://pypi.python.org/pypi/ckanext-data_es_theme.
-To publish a new version to PyPI follow these steps:
-
-1. Update the version number in the ``setup.py`` file.
-   See `PEP 440 <http://legacy.python.org/dev/peps/pep-0440/#public-version-identifiers>`_
-   for how to choose version numbers.
-
-2. Create a source distribution of the new version::
-
-     python setup.py sdist
-
-3. Upload the source distribution to PyPI::
-
-     python setup.py sdist upload
-
-4. Tag the new release of the project on GitHub with the version number from
-   the ``setup.py`` file. For example if the version number in ``setup.py`` is
-   0.0.2 then do::
-
-       git tag 0.0.2
-       git push --tags
+    
+ 
