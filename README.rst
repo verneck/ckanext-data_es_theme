@@ -90,7 +90,7 @@ Development Installation
 To install ckanext-data_es_theme for development, activate your CKAN virtualenv and
 do::
 
-    git clone https://tfs.es.gov.br/tfs/GESIN_Collection/SGSIS/_git/ckanext-data_es_theme
+    git clone https://github.com/prodest/ckanext-data_es_theme.git
     cd ckanext-data_es_theme
     python setup.py develop
     pip install -r dev-requirements.txt
