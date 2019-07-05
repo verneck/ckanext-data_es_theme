@@ -80,7 +80,7 @@ Para instalar o tema ckanext-data_es_theme:
    python setup.py install
    python setup.py develop
 
-6. Saia da virtualenv::
+6. Saia do virtualenv::
 
      deactivate
 
