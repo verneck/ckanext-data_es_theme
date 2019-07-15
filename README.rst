@@ -48,7 +48,9 @@ Para instalar o tema ckanext-data_es_theme:
 5. Instale o tema ckanext-data_es_theme no virtualenv do CKAN utilizando o comando Python abaixo::
 
    pip install -r pip-requirements.txt
+   
    python setup.py install
+   
    python setup.py develop
 
 6. Saia do virtualenv::
